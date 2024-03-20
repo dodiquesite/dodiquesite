@@ -1,0 +1,24 @@
+.win {
+    background-color: aliceblue;
+    height: 100%;
+    font-family: sans-serif;
+    font-size: 1rem;
+    padding: 2rem;
+    max-width: 50rem;
+}
+
+@keyframes anim404 {
+    from {
+        color: red;
+    }
+    to {
+        color: purple;
+    }
+}
+
+.anim-404 {
+    animation: anim404;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}

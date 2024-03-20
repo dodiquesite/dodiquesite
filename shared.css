@@ -1,0 +1,130 @@
+html, body {
+    min-height: 100vh;
+    margin: 0;
+}
+body {
+    background: linear-gradient(
+            180deg, rgba(153, 102, 0, 1) 0%, rgba(153, 102, 0, 1) 0%, rgba(153, 102, 0, 1) 11%, rgba(153, 102, 0, 1) 20%, rgba(204, 153, 102, 1) 100%, rgba(204, 153, 102, 1) 100%
+    );
+
+    display: flex;
+    flex-direction: column;
+}
+.hat-container {
+    min-height: 4rem;
+    text-align: right;
+}
+.hat-container header {
+    height: 100%;
+    display: inline-flex;
+    justify-content: right;
+    align-items: center;
+    background-color: rgb(52, 52, 52);
+}
+.hat-container img {
+    height: 80%;
+    padding-inline: 10px;
+}
+
+.hat-container ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.hat-container ul .layer2 {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    right: 1px;
+    top: 100%;
+    background-color: #000000;
+}
+
+.hat-container nav li:hover ul {
+    display: block;
+ }
+
+.hat-container nav li {
+    display: flex;
+    flex-direction: column;
+}
+
+.hat-container nav a {
+    padding: 5px;
+    margin: 5px;
+    width: 7rem;
+    background-color: aliceblue;
+    border: 3px;
+    text-align: center;
+    height: 2rem;
+}
+.hat-container nav div {
+
+}
+
+.under {
+    flex-shrink: 0;
+
+    height: 5rem;
+    background-color: rgb(69, 69, 69);
+    margin: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.under a {
+    background-color: aliceblue;
+    border: 2px;
+    margin: 5px;
+    padding: 10px;
+}
+.under div img { height: 100%; }
+.under div {
+    display: flex;
+    align-items: center;
+    height: 90%;
+}
+.content {
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 7rem;
+    padding-right: 7rem;
+    min-width: 15rem;
+}
+
+@media (max-width: 900px) {
+    .hat-container header {
+        flex-direction: column;
+    }
+    .hat-container {
+        text-align: center;
+    }
+    .content {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-top: 4rem;
+    }
+}
+
+@keyframes vkRotateAnim {
+    from { transform: rotate(0deg); }
+    to {
+        transform: rotate(360deg);
+        animation-play-state: initial;
+    }
+}
+
+.under div img {
+    animation: vkRotateAnim;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-play-state: paused;
+}
+
+.under div img:hover {
+    animation-play-state: running;
+}

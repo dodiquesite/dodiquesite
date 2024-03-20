@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>О нас</title>
+        <link href="shared.css" type="text/css" rel="stylesheet">
+        <link href="about.css" type="text/css" rel="stylesheet">
+        <meta charset="UTF-8">
+
+    </head>
+    <body>
+        <div class = "hat-container">
+            <header>
+                <img src="img/petyabus.png" alt="petya">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">На главную</a></li>
+                        <li style="position: relative;">
+                            <a href="./routes.html">Маршруты</a>
+                            <ul class="layer2">
+                                <li><a href="routes.html?city=petropavl">Петропавловск</a></li>
+                                <li><a href="routes.html?city=outskirts">Пригород</a></li>
+                                <li><a href="routes.html?city=omsk">Омск</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="reg.html">Регистрация</a></li>
+                        <li style="position: relative;">
+                            <a href="#">Главная</a>
+                            <ul class="layer2">
+                                <li><a href="index.html">Карта</a></li>
+                                <li><a href="./about.html">О нас</a></li>
+                                <li><a href="./reg.html">Регистрация</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <div class="content">
+            <div class="aboutwin">
+                <h1>Добро пожаловать на страницу «О нас»!</h1>
+                <p>Мы - команда профессионалов, работающая над созданием и развитием системы мониторинга автобусов в реальном времени в городе Петропавловск. Наша цель - обеспечить жителей и гостей города удобным и эффективным способом отслеживания движения общественного транспорта.</p>
+                <p>Мы стремимся предоставить нашим пользователям максимально точную и актуальную информацию о расписании и местоположении автобусов. Благодаря использованию передовых технологий и постоянному совершенствованию нашего сервиса, мы гарантируем надежность и оперативность нашего мониторинга.</p>
+                <p>Наша команда состоит из опытных разработчиков, аналитиков и специалистов по обслуживанию систем, которые работают с целью обеспечить бесперебойную работу сервиса и удовлетворить потребности наших пользователей.</p>
+                <p>Мы признаем важность комфортной и эффективной транспортной инфраструктуры для развития городской среды и повышения качества жизни его обитателей. Поэтому мы стремимся к постоянному улучшению нашего сервиса и готовы к сотрудничеству с городскими властями, общественными организациями и жителями города для достижения этой цели.</p>
+                <p>Спасибо за то, что выбираете нас для отслеживания автобусов в реальном времени в городе Петропавловск! Мы надеемся на долгосрочное плодотворное сотрудничество и всегда готовы к обратной связи и предложениям по улучшению нашего сервиса.</p>
+                <p>С уважением,<br>Команда мониторинга автобусов в реальном времени города Петропавловск</p>
+                <div class="aboutimages">
+                    <img src="img/petyabus.png" alt="petya" class="petyascale">
+                    <img src="img/petropavl.svg" alt="petya" class="petrotrans">
+                </div>
+                <svg width="300" height="250" class="svg">
+                    <defs>
+                        <mask id='mask-1' x='0' y='0' width='100' height='100'>
+                            <rect id='main-rect' x='0' y='0' width='100' height='100' fill='#000' />
+                            <text
+                                    alignment-baseline='middle'
+                                    text-anchor='middle'
+                                    font-family='Rammetto One'
+                                    font-weight='bold'
+                                    font-size='60'
+                                    id='text' x='50%' y='50%' fill='#fff'>Petyabus</text>
+                        </mask>
+                    </defs>
+                    <image width='100%' height='100%' xlink:href='https://liter.kz/wp-content/uploads/2020/04/petro1-750x450.jpg' mask='url(#mask-1)' />
+                </svg>
+            </div>
+        </div>
+
+        <footer class="under">
+            <a href="about.html">О нас</a>
+            <div>
+                <a href="#">Поддержка</a>
+                <a href="#">Контакты</a>
+                <img src="img/vk.svg" alt="VK">
+            </div>
+        </footer>
+    </body>
+</html>

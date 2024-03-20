@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru"l>
+<head>
+    <title>Маршруты</title>
+    <link href="shared.css" type="text/css" rel="stylesheet">
+    <link href="routes.css" type="text/css" rel="stylesheet">
+    <script src="routes.js" defer></script>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+<div class = "hat-container">
+    <header>
+        <img src="img/petyabus.png" alt="petya">
+        <nav>
+            <ul>
+                <li><a href="index.html">На главную</a></li>
+                <li style="position: relative;">
+                    <a href="./routes.html">Маршруты</a>
+                    <ul class="layer2">
+                        <li><a href="routes.html?city=petropavl">Петропавловск</a></li>
+                        <li><a href="routes.html?city=outskirts">Пригород</a></li>
+                        <li><a href="routes.html?city=omsk">Омск</a></li>
+                    </ul>
+                </li>
+                <li><a href="reg.html">Регистрация</a></li>
+                <li style="position: relative;">
+                    <a href="#">Главная</a>
+                    <ul class="layer2">
+                        <li><a href="index.html">Карта</a></li>
+                        <li><a href="./about.html">О нас</a></li>
+                        <li><a href="./reg.html">Регистрация</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</div>
+
+<div class="content">
+    <div class="main-container">
+        <div class="side-panel-container">
+            <div class="side-panel">
+                <h1>Маршруты $cityname</h1>
+                <div class="routes-list">
+
+                </div>
+            </div>
+        </div>
+        <div class="route-window">
+            <div class="route-name">
+                <h1>Название маршрута</h1>
+            </div>
+            <div class="stops-and-info">
+                <div class="stops">
+                    <h1>Остановки</h1>
+                    <div class="stops-list">
+                        <div class="stops-list-element"><button>Остановка №1</button></div>
+                        <div class="stops-list-element"><button>Остановка №2</button></div>
+                    </div>
+                </div>
+                <div class="info">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus velit est, interdum vel porta et, blandit sit amet arcu. Pellentesque viverra risus turpis, a fermentum nisl commodo at. Duis dapibus placerat augue, nec cursus orci maximus nec. Donec semper sem sed congue aliquet. Donec tincidunt pharetra auctor. Aliquam faucibus, orci vel sollicitudin facilisis, lectus ante congue est, in blandit nibh risus non augue. Nam quis viverra nisl, bibendum elementum leo. Quisque at lacus purus. Quisque a neque pulvinar, facilisis nibh ac, dapibus elit. Vestibulum lacinia vestibulum libero quis placerat.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="under">
+    <a href="about.html">О нас</a>
+    <div>
+        <a href="#">Поддержка</a>
+        <a href="#">Контакты</a>
+        <img src="img/vk.svg" alt="VK">
+    </div>
+</footer>
+</body>
+</html>

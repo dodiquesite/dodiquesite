@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Регистрация</title>
+    <link href="shared.css" type="text/css" rel="stylesheet">
+    <link href="reg.css" type="text/css" rel="stylesheet">
+    <meta charset="UTF-8">
+
+</head>
+<body>
+<div class = "hat-container">
+    <header>
+        <img src="img/petyabus.png" alt="petya">
+        <nav>
+            <ul>
+                <li><a href="index.html">На главную</a></li>
+                <li style="position: relative;">
+                    <a href="./routes.html">Маршруты</a>
+                    <ul class="layer2">
+                        <li><a href="routes.html?city=petropavl">Петропавловск</a></li>
+                        <li><a href="routes.html?city=outskirts">Пригород</a></li>
+                        <li><a href="routes.html?city=omsk">Омск</a></li>
+                    </ul>
+                </li>
+                <li><a href="reg.html">Регистрация</a></li>
+                <li style="position: relative;">
+                    <a href="#">Главная</a>
+                    <ul class="layer2">
+                        <li><a href="index.html">Карта</a></li>
+                        <li><a href="./about.html">О нас</a></li>
+                        <li><a href="./reg.html">Регистрация</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</div>
+
+<div class="content">
+    <div class="regwin">
+        <h1 style="text-align: center;">Регистрация</h1>
+        <div class="reg-inputs">
+            <div class="input-block">
+                <input type="text" id="login" placeholder="Фамилия Имя Отчество" name="fname">
+                <div class="input-status"></div>
+            </div>
+            <div class="input-block">
+                <input type="text" id="pass" placeholder="Пароль" name="fpass">
+                <div class="input-status"></div>
+            </div>
+            <select name="sex">
+                <option value="man">Мужской</option>
+                <option value="woman">Женский</option>
+            </select>
+            <div class="button-block"><button>Зарегистрироваться</button></div>
+        </div>
+    </div>
+</div>
+
+<footer class="under">
+    <a href="about.html">О нас</a>
+    <div>
+        <a href="#">Поддержка</a>
+        <a href="#">Контакты</a>
+        <img src="img/vk.svg" alt="VK">
+    </div>
+</footer>
+</body>
+</html>

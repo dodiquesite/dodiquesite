@@ -1,0 +1,27 @@
+.aboutwin {
+    background-color: aliceblue;
+    height: 100%;
+    font-family: sans-serif;
+    font-size: 1rem;
+    padding: 2rem;
+    max-width: 50rem;
+}
+
+.petyascale:hover {
+    transition: transform, 1s;
+    transform: scale(1.2);
+}
+
+.petrotrans:hover {
+    transition: transform, 1s;
+    transform: skew(20deg, 35deg);
+}
+
+.aboutimages {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.aboutimages img {
+    height: 80px;
+}

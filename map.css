@@ -1,0 +1,51 @@
+.main-container {
+    display: flex;
+    width: 100%
+}
+
+.side-panel {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    background-color: green;
+}
+
+.search-box {
+    padding-block: 20px;
+    text-align: center;
+}
+.search-box input {
+    font-size: 1.5rem;
+    width: 80%;
+    margin: auto;
+}
+
+.routes-list {
+    flex-grow: 1;
+    background-color: aqua;
+}
+
+.info-button-box {
+    padding-block: 20px;
+    text-align: center;
+}
+.info-button-box button {
+    width: 80%;
+    height: 3rem;
+    font-size: 1.5rem;
+}
+
+.map-container {
+    background-color: aliceblue;
+    flex-grow: 1;
+}
+
+.content {
+    align-items: stretch;
+}
+
+@media (max-width: 1350px) {
+    .content {
+        padding-inline: 0px;
+    }
+}

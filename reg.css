@@ -1,0 +1,48 @@
+.regwin {
+    background-color: aliceblue;
+    height: 45%;
+    min-height: 350px;
+    min-width: 250px;
+    max-width: 350px;
+    width: 30%;
+    font-family: sans-serif;
+    font-size: 1rem;
+    padding: 2rem;
+}
+
+.reg-inputs .input-block {
+    margin-top: 1.5rem;
+    margin-bottom: 3rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.reg-inputs input {
+    display: inline-block;
+    width: 75%;
+    height: 2rem;
+}
+
+.reg-inputs .input-status {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background-color: green;
+}
+
+.reg-inputs select {
+    display: block;
+    height: 1.5rem;
+}
+
+.reg-inputs button {
+    height: 2rem;
+}
+
+.reg-inputs .button-block {
+    display: block;
+    margin-top: 3rem;
+    text-align: right;
+}
