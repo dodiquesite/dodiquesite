@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "map-bundle": "webpack --config webpack.config.js"
+  },
+  "dependencies": {
+    "css-loader": "^6.10.0",
+    "ol": "^9.1.0",
+    "style-loader": "^3.3.4",
+    "webpack": "^5.91.0"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.29",
+    "webpack-cli": "^5.1.4"
+  }
+}

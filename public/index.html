@@ -3,7 +3,9 @@
 <head>
     <title>О нас</title>
     <link href="shared.css" type="text/css" rel="stylesheet">
-    <link href="404.css" type="text/css" rel="stylesheet">
+    <script src="shared.js" defer></script>
+    <link href="map.css" type="text/css" rel="stylesheet">
+    <script src="map-bundle.js" defer></script>
     <meta charset="UTF-8">
 
 </head>
@@ -26,7 +28,7 @@
                 <li style="position: relative;">
                     <a href="#">Главная</a>
                     <ul class="layer2">
-                        <li><a href="index.html">Карта</a></li>
+                        <li><a href="./index.html">Карта</a></li>
                         <li><a href="./about.html">О нас</a></li>
                         <li><a href="./reg.html">Регистрация</a></li>
                     </ul>
@@ -37,16 +39,28 @@
 </div>
 
 <div class="content">
-    <div class="win">
-        <h1 class="anim-404">Ошибка 404</h1>
-        <h2>Страница не найдена</h2>
+    <div class="main-container">
+        <div class="side-panel">
+            <div class="search-box">
+                <input type="text", placeholder="Поиск">
+            </div>
+            <div class="routes-list">
+
+            </div>
+            <div class="info-button-box">
+                <button>Информация</button>
+            </div>
+        </div>
+        <div class="map-container">
+            <div id="map" class="map" tabindex="0"></div>
+        </div>
     </div>
 </div>
 
 <footer class="under">
     <a href="about.html">О нас</a>
     <div>
-        <a href="#">Поддержка</a>
+        <a href="javascript:openSupportWindow()">Поддержка</a>
         <a href="#">Контакты</a>
         <img src="img/vk.svg" alt="VK">
     </div>

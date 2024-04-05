@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /** Функция для вычисления суммы арифметической прогрессии */
+        function calcAPSum(a, d, n) {
+            return (2*a + (n-1) * d) * n / 2;
+        }
+
+        /** Ф-ция для проверки числа на корректность */
+        function isCorrect(n, min, max) {
+            return !(Number.isNaN(n) || n < min || n > max);
+        }
+
+        /** Ф-ция, которая берёт введенные значения с полей ввода, вызывает ф-цию вычисления суммы А.П.
+         *  и записывает результат в поле вывода */
+        function calculate() {
+            var resultLabel = document.getElementById('result-label');
+            resultLabel.style.display = 'block';
+
+            // Берём введенные значения из полей и переводим в числовой тип
+            var a = Number(document.getElementById('input-a').value);
+            var d = Number(document.getElementById('input-d').value);
+            var n = Number(document.getElementById('input-n').value);
+
+            // Проверяем, что введённые значения корректные
+            if (!isCorrect(a, 0, 100) || !isCorrect(d, 0, 100) || !isCorrect(n, 0, 100)) {
+                return resultLabel.innerText = `Ошибка: введите корректные значения от 0 до 100`;
+            }
+
+            // Передаём значения и вызываем ф-цию расчёта
+            var result = calcAPSum(a, d, n);
+
+            // Записываем результат в виде строки в поле вывода
+            resultLabel.innerText = `Результат: ${result}`;
+        }
+    </script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .calc-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: sans-serif;
+            font-size: 1.3rem;
+        }
+        .calc-panel button {
+            font-size: 1em;
+            margin: 10px;
+            align-self: center;
+            padding: 5px;
+            padding-inline: 25px;
+        }
+        .inputs input {
+            font-size: 1em;
+            width: 4em;
+            margin: 10px;
+        }
+        .inputs {
+            display: flex;
+            justify-content: center;
+        }
+        .result {
+            background-color: #e8e8e8;
+            align-self: stretch;
+            text-align: center;
+            height: 1.5em;
+            padding-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calc-panel">
+        <p>Введите переменные для формулы:</p>
+        <math display="block">
+            <mrow>
+                <mi>A</mi>
+                <mo>=</mo>
+                <mrow>
+                    <munderover>
+                        <mo movablelimits="false">∑</mo>
+                        <mrow>
+                            <mi>i</mi>
+                            <mo>=</mo>
+                            <mn>0</mn>
+                        </mrow>
+                        <mi>n</mi>
+                    </munderover>
+                </mrow>
+                <mo form="prefix" stretchy="false">(</mo>
+                <mi>a</mi>
+                <mo>+</mo>
+                <mi>i</mi>
+                <mo>⋅</mo>
+                <mi>d</mi>
+                <mo form="postfix" stretchy="false">)</mo>
+            </mrow>
+        </math>
+        <div class="inputs">
+            <input id="input-a" type="number", placeholder="a">
+            <input id="input-d" type="number", placeholder="d">
+            <input id="input-n" type="number", placeholder="n">
+        </div>
+        <button onclick="calculate()">Рассчитать</button>
+        <div id="result-label" class="result" style="display: none;"></div>
+    </div>
+</body>
+</html>

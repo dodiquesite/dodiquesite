@@ -3,6 +3,9 @@
 <head>
     <title>Регистрация</title>
     <link href="shared.css" type="text/css" rel="stylesheet">
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="reg.js"></script>
+    <script src="shared.js" defer></script>
     <link href="reg.css" type="text/css" rel="stylesheet">
     <meta charset="UTF-8">
 
@@ -40,19 +43,44 @@
     <div class="regwin">
         <h1 style="text-align: center;">Регистрация</h1>
         <div class="reg-inputs">
-            <div class="input-block">
-                <input type="text" id="login" placeholder="Фамилия Имя Отчество" name="fname">
+            <div id="login-block" class="input-block">
+                <div class="input-error-label"></div>
+                <input type="text" placeholder="Фамилия Имя Отчество" name="fname">
                 <div class="input-status"></div>
             </div>
-            <div class="input-block">
-                <input type="text" id="pass" placeholder="Пароль" name="fpass">
+            <div id="pass-block" class="input-block">
+                <div class="input-error-label"></div>
+                <input type="text" placeholder="Пароль" name="fpass">
                 <div class="input-status"></div>
             </div>
-            <select name="sex">
-                <option value="man">Мужской</option>
-                <option value="woman">Женский</option>
+            <div id="email-block" class="input-block">
+                <div class="input-error-label"></div>
+                <input type="text" placeholder="Эмеил адрес" name="mail">
+                <div class="input-status"></div>
+            </div>
+            <select id='role-select' name="role">
+                <option value="passenger">Пассажир</option>
+                <option value="driver">Водитель</option>
             </select>
+            <div class="sex-input-container">
+                <input type="radio" id="sex-input-man" name="sex" value="man" checked>
+                <label for="sex-input-man">Мужчина</label><br>
+                <input type="radio" id="sex-input-woman" name="sex" value="woman">
+                <label for="sex-input-man">Женщина</label><br>
+            </div>
+            <input type="checkbox" id="input-notifications" name="email-notifications">
+            <label for="sex-input-man">Отправлять мне уведомления на почту</label><br>
+
             <div class="button-block"><button>Зарегистрироваться</button></div>
+        </div>
+        <div class="credentials-show">
+            <h3>Успешная регистрация. Ваши данные:</h3>
+            <p id="name-show-label"></p>
+            <p id="pass-show-label"></p>
+            <p id="email-show-label"></p>
+            <p id="role-show-label"></p>
+            <p id="sex-show-label"></p>
+            <p id="notify-show-label"></p>
         </div>
     </div>
 </div>
@@ -60,7 +88,7 @@
 <footer class="under">
     <a href="about.html">О нас</a>
     <div>
-        <a href="#">Поддержка</a>
+        <a href="javascript:openSupportWindow()">Поддержка</a>
         <a href="#">Контакты</a>
         <img src="img/vk.svg" alt="VK">
     </div>

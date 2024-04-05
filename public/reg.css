@@ -12,17 +12,22 @@
 
 .reg-inputs .input-block {
     margin-top: 1.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
 
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
 }
 
-.reg-inputs input {
+.input-block input {
     display: inline-block;
     width: 75%;
     height: 2rem;
+}
+
+#input-notifications {
+    margin-top: 1rem;
 }
 
 .reg-inputs .input-status {
@@ -45,4 +50,14 @@
     display: block;
     margin-top: 3rem;
     text-align: right;
+}
+
+.sex-input-container input {
+    display: inline;
+    width: auto;
+    height: auto;
+}
+
+.credentials-show {
+
 }

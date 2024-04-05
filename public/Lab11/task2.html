@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="code.js" defer></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .main-panel {
+            font-family: sans-serif;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        .numbers-table {
+            width: 100px;
+            max-height: 200px;
+            overflow: scroll;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-panel">
+        <h3>Результат:</h3>
+        <table id="result-table" class="numbers-table">
+            <thead> <tr><td>Числа:</td></tr> </thead>
+        </table>
+    </div>
+</body>
+</html>
