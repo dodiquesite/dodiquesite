@@ -2,7 +2,6 @@ from pyrosm import OSM
 from pyrosm import get_data
 import gzip
 import json
-from googletrans import Translator
 
 data = OSM('greece-monuments.pbf')
 
