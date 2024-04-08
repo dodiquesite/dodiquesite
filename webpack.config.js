@@ -3,10 +3,10 @@ const webpack = require('webpack');
 module.exports = {
   //mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
   mode: 'development',
-  entry: './map.js',
+  entry: './public/map.js',
   output: {
     path: __dirname,
-    filename: './map-bundle.js'
+    filename: './public/map-bundle.js'
   },
   watch: true,
   watchOptions: {

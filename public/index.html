@@ -5,6 +5,7 @@
     <link href="shared.css" type="text/css" rel="stylesheet">
     <script src="shared.js" defer></script>
     <link href="map.css" type="text/css" rel="stylesheet">
+    <script src="jquery-3.7.1.min.js"></script>
     <script src="map-bundle.js" defer></script>
     <meta charset="UTF-8">
 
@@ -53,6 +54,10 @@
         </div>
         <div class="map-container">
             <div id="map" class="map" tabindex="0"></div>
+            <div id="popup" class="ol-popup">
+                <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                <div id="popup-content"></div>
+            </div>
         </div>
     </div>
 </div>
