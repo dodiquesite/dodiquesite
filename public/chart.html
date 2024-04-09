@@ -4,28 +4,20 @@
     <meta charset="UTF-8">
     <title>Chart</title>
     <style>
-
+        body {
+            margin: 0;
+            padding: 0;
+        }
     </style>
     <script src="chart.min.js"></script>
 
     <script defer>
         document.addEventListener('DOMContentLoaded', function() {
-            console.log("load");
-            loadData().then();
-            //test();
+            loadDataAndCreateChar().then();
         });
 
-        async function loadData() {
-            var dataset = { label: "село", data: [],
-                radius: function(context) {
-                    var index = context.dataIndex;
-                    var data = context.dataset.data[index];
-                    var size = context.chart.width;
-                    var base = data.value / 100;
-                    return (size / 24) * 10;
-                },
-                backgroundColor: '#ff3400'
-            };
+        async function loadDataAndCreateChar() {
+            var dataset = { label: "село", data: [], backgroundColor: '#ff3400' };
 
             var response = await fetch('resource/data.json');
             var regions = await response.json();
@@ -41,8 +33,6 @@
                 yLabels[regId++] = region;
             }
 
-            const ctx = document.getElementById('chart');
-
             const opts = {
                 scales: {
                     y: {
@@ -53,61 +43,14 @@
                         }
                     }
                 },
-                elements: {
-                    point: {
-                        radius: function(context) {
-                            var index = context.dataIndex;
-                            var data = context.dataset.data[index];
-                            var size = context.chart.width;
-                            var base = data.value / 100;
-                            return (size / 24) * base;
-                        }
-                    }
-                }
             };
             const config = {
                 type: 'bubble',
-                plugins: [{
-                    afterDatasetUpdate: chart => {
-                        chart.getDatasetMeta(0).data.forEach(v => {
-                            v.options.radius = 30;
-                            //v._options.hoverRadius = v._model.radius;
-                        })
-                    }
-                }],
                 data: { datasets: [dataset] },
                 options: opts
             };
 
-            new Chart(ctx, config);
-        }
-
-        function test() {
-            const data = {
-                datasets: [{
-                    label: 'First Dataset',
-                    radius: 100,
-                    data: [{
-                        x: 200,
-                        y: 30,
-                        r: 150
-                    }, {
-                        x: 4000,
-                        y: 10,
-                        r: 150
-                    }],
-                    backgroundColor: 'rgb(255, 99, 132)'
-                }]
-            };
-
-            const config = {
-                type: 'bubble',
-                data: data,
-                options: {}
-            };
-
-            var chartCanvas = document.getElementById('chart');
-            new Chart(chartCanvas, config);
+            new Chart(document.getElementById('chart'), config);
         }
     </script>
 </head>

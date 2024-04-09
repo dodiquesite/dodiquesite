@@ -1,17 +1,17 @@
+import 'ol/ol.css'
+
 import Map from 'ol/Map';
 import OSM from 'ol/source/OSM';
 import TileLayer from 'ol/layer/Tile';
 import View from 'ol/View';
 
 import {Style, Icon} from 'ol/style';
-
 import Feature from 'ol/Feature';
 import { Point } from 'ol/geom';
+
 import 'ol/proj';
 import {useGeographic} from 'ol/proj';
 
-import 'ol/ol.css'
-import { fromLonLat, toLonLat } from 'ol/proj';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
 import {Overlay} from "ol";

@@ -32,6 +32,7 @@ body {
 }
 
 .hat-container ul .layer2 {
+    z-index: 1;
     display: none;
     flex-direction: column;
     position: absolute;
