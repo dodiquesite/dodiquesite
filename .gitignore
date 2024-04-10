@@ -2,3 +2,4 @@
 package-lock.json
 *.pbf
 node_modules
+.idea
