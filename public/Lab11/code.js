@@ -51,5 +51,5 @@ function* sumSequenceGen(numbers) {
 function addNumberToTable(n) {
     var tr = resultTable.insertRow();
     var td = tr.insertCell();
-    td.innerHTML = `<b>${tr.rowIndex}</b>: ${n}`;
+    td.innerHTML = `<b>i=${tr.rowIndex}</b>: ${n}`;
 }

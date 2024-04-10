@@ -11,6 +11,6 @@
   },
   "devDependencies": {
     "@types/chartjs": "^0.0.31",
-    "@types/jquery": "^3.5.29",
+    "@types/jquery": "^3.5.29"
   }
 }

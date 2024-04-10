@@ -29,20 +29,6 @@ var popupCloser = document.getElementById('popup-closer');
 if (!popupContent || !popupContainer || !popupCloser)
     throw new Error("popup, popup-content or popup-closer not found");
 
-async function popupAnimate(isClose) {
-    return new Promise(res => {
-        $(popupContainer).css('scale', isClose ? 1.0 : 0.25);
-        $(popupContainer).css('transform-origin', "16% 100%");
-        $(popupContainer).animate({
-                scale: isClose ? 0.25 : 1.0,
-            }, 155, "linear",
-            () => {
-                res();
-                $(popupContainer).css('scale', 1.0);
-            });
-    });
-}
-
 popupCloser.onclick = async function () {
     await popupAnimate(true);
     popupOverlay.setPosition(undefined);
@@ -57,25 +43,42 @@ var popupOverlay = new Overlay({
     }
 });
 
+app().then();
+
+async function popupAnimate(isClose) {
+    return new Promise(res => {
+        $(popupContainer).css('scale', isClose ? 1.0 : 0.25);
+        $(popupContainer).css('transform-origin', "16% 100%");
+        $(popupContainer).animate({ scale: isClose ? 0.25 : 1.0 }, 155, "linear",
+            () => {
+                res();
+                $(popupContainer).css('scale', 1.0);
+            });
+    });
+}
+
 /** @param {Monument} monument */
 function showPopup(monument) {
     var content = $(popupContent);
     content.empty();
+
     content.append($('<h3></h3>').text(monument.name));
+
     if (monument.desc)
         content.append($('<p></p>').text(monument.desc));
+
     var attrsDiv = $("<div>", {"class": "popup-attrs"});
     for (let key of Object.keys(monument.attrs))
         attrsDiv.append($('<p></p>').text(`${key}: ${monument.attrs[key]}`));
     content.append(attrsDiv);
+
     if (monument.link)
         content.append($('<a></a>',
             {href: monument.link, text: `Wiki: ${monument.link}`}));
+
     popupOverlay.setPosition([monument.lon, monument.lat]);
     popupAnimate(false).then();
 }
-
-app().then();
 
 function createMap() {
     useGeographic();
@@ -98,16 +101,12 @@ function createMap() {
         }),
     });
 
-    monumentIcons.bindClickEventToMap(map);
+    monumentIcons.bindMouseEventsToMap(map);
 
-    console.dir( map.getControls().getArray()[0] );
-    //var zoomControl = map.getControls().getArray()[0];
     map.on('moveend', (e) => {
         // [minX,minY,maxX,maxY]
         var currentExtent = map.getView().calculateExtent(map.getSize());
-        console.dir(currentExtent);
         var monumentsInBbox = getMonumentsInBbox(currentExtent);
-        console.dir(monumentsInBbox);
         monumentIcons.clearMonuments();
         monumentsInBbox.slice(0, 100).forEach(monument => {
             monumentIcons.addMonument(monument);
@@ -117,7 +116,6 @@ function createMap() {
 
 async function app() {
     monumentsData = await loadMonumentsData();
-    console.dir(monumentsData);
     createMap();
 }
 
@@ -148,54 +146,40 @@ function getMonumentsInBbox(bbox) {
 }
 
 class MonumentMapIcons {
-    constructor() {
-        const iconsStyle = new Style({
+    static busIconStyle(color, scale) {
+        return new Style({
             image: new Icon({
-                color: '#00d0ff',
-                crossOrigin: 'anonymous',
-                src: 'img/monument.svg'
+                color, scale, crossOrigin: 'anonymous', src: 'img/monument.svg',
             })
         });
-        this.vectorSource = new VectorSource({ features: [] });
-        this.vectorLayer = new VectorLayer( {
-            source: this.vectorSource,
-            style: (feature, resolution) => {
-                iconsStyle.getImage().setScale(2);
-                return iconsStyle;
-            }
-        } );
+    }
 
-        //map.addLayer(this.vectorLayer);
-        //this.icons = {};
+    constructor() {
+        this.iconsStyle = this.constructor.busIconStyle('#00d0ff', 2);
+        this.vectorSource = new VectorSource({ features: [] });
+        this.vectorLayer = new VectorLayer({ source: this.vectorSource, style: this.iconsStyle });
     }
 
     getVectorLayer() { return this.vectorLayer; }
-    bindClickEventToMap(map) {
+    bindMouseEventsToMap(map) {
         map.on('click', (event) => {
             const feature = map.forEachFeatureAtPixel(event.pixel, function (feature) {
                 return feature;
             });
             if (feature) {
-                var monument = feature.getProperties().monument
-                console.log(monument);
+                var monument = feature.getProperties().monument;
                 showPopup(monument);
             }
         });
 
         var lastHoveredFeature = null;
-        function clearLastHoveredFeature() {
+        var clearLastHoveredFeature = () => {
             if (lastHoveredFeature) {
-                lastHoveredFeature.setStyle(new Style({
-                    image: new Icon({
-                        color: '#00d0ff',
-                        crossOrigin: 'anonymous',
-                        src: 'img/monument.svg',
-                        scale: 2
-                    })
-                }));
+                lastHoveredFeature.setStyle(this.iconsStyle);
                 lastHoveredFeature = null;
             }
         }
+
         map.on('pointermove', (event) => {
             if (event.dragging)
                 return;
@@ -206,16 +190,8 @@ class MonumentMapIcons {
                 if (feature === lastHoveredFeature)
                     return;
                 clearLastHoveredFeature();
-                feature.setStyle(new Style({
-                        image: new Icon({
-                            color: '#7702f3',
-                            crossOrigin: 'anonymous',
-                            src: 'img/monument.svg',
-                            scale: 2.5
-                        })
-                }));
+                feature.setStyle(this.constructor.busIconStyle('#7702f3', 2.5));
                 lastHoveredFeature = feature;
-                console.log(feature);
             } else {
                 clearLastHoveredFeature();
             }
